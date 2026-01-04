@@ -43,7 +43,7 @@ def get_moe_comm_method(
 def setup_moe_comm_method(moe_config):
     _MoECommMethods[MoECommType.ALLTOALL] = AlltoAllCommImpl(moe_config)
     _MoECommMethods[MoECommType.ALLGATHER] = AllGatherCommImpl(moe_config)
-    _MoECommMethods[MoECommType.MC2] = MC2CommImpl(moe_config)
+    _MoECommMethods[MoECommType.MC2] = FusedAlltoAllCommImpl(moe_config)  # MC2CommImpl(moe_config)
     _MoECommMethods[MoECommType.FUSED_ALLTOALL] = FusedAlltoAllCommImpl(
         moe_config)
 
